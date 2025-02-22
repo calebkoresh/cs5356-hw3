@@ -37,10 +37,11 @@
             padding: 10px 20px;
             cursor: pointer;
         }
-        #activity {
-            padding: 15px;
+        #catFact {
             background: #f0f0f0;
+            padding: 15px;
             border-radius: 5px;
+            max-width: 80%;
             display: none;
         }
     </style>
@@ -53,18 +54,18 @@
             <summary>Click Here!</summary>
             <p>This details element creates an expandable section without needing any JavaScript. The transition property of the CSS styling automatically animates the expansion and collapsion of this section.</p>
         </details>
-        <button onclick="getActivity()">I'm Bored!</button>
-        <p id="activity"></p>
+        <button onclick="getCatFact()">Get Random Cat Fact!</button>
+        <p id="catFact"></p>
     </main>
 
     <script>
-        function getActivity() {
-            fetch('https://www.boredapi.com/api/activity')
+        function getCatFact() {
+            fetch('https://catfact.ninja/fact')
                 .then(response => response.json())
                 .then(data => {
-                    const activityElement = document.getElementById('activity');
-                    activityElement.textContent = "Try this: " + data.activity;
-                    activityElement.style.display = 'block';
+                    const factElement = document.getElementById('catFact');
+                    factElement.textContent = data.fact;
+                    factElement.style.display = 'block';
                 });
         }
     </script>
