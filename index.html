@@ -33,6 +33,16 @@
             padding: 20px;
             background: #e5e5e5;
         }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #activity {
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +53,20 @@
             <summary>Click Here!</summary>
             <p>This details element creates an expandable section without needing any JavaScript. The transition property of the CSS styling automatically animates the expansion and collapsion of this section.</p>
         </details>
+        <button onclick="getActivity()">I'm Bored!</button>
+        <p id="activity"></p>
     </main>
+
+    <script>
+        function getActivity() {
+            fetch('https://www.boredapi.com/api/activity')
+                .then(response => response.json())
+                .then(data => {
+                    const activityElement = document.getElementById('activity');
+                    activityElement.textContent = "Try this: " + data.activity;
+                    activityElement.style.display = 'block';
+                });
+        }
+    </script>
 </body>
 </html>
