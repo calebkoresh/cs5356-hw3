@@ -27,6 +27,11 @@
             padding: 10px;
             border-radius: 5px;
             width: 80%;
+            transition: all 0.3s ease;
+        }
+        details[open] {
+            padding: 20px;
+            background: #e5e5e5;
         }
     </style>
 </head>
@@ -36,7 +41,7 @@
         <img src="meme.jpg" alt="Funny meme">
         <details>
             <summary>Click Here!</summary>
-            <p>This details element creates an expandable section without needing any JavaScript</p>
+            <p>This details element creates an expandable section without needing any JavaScript. The transition property of the CSS styling automatically animates the expansion and collapsion of this section.</p>
         </details>
     </main>
 </body>
